@@ -1,0 +1,56 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "My Zuplo API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "New Route",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "redirectHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "location": "/docs",
+              "status": 302
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "c836b794-2209-44d6-8ec9-3f6b6bc52702",
+        "x-internal": true
+      }
+    },
+    "/(.*)": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "New Route",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/hello-world)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "17b76e7a-bc1d-482e-a3e1-c778f872fe40",
+        "x-internal": true
+      }
+    }
+  }
+}
